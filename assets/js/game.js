@@ -1,30 +1,50 @@
-// this creates a function named "fight"
+var playerName = window.prompt("What is your robot's name ");
+var playerHealth = 100;
+var playerAttack = 10;
 
-function fight() {
-    window.alert("The fight has begun!");
-}
+//You can also log multiple values at once like this
+console.log(playerName, playerAttack, playerHealth);
 
-//fight();
+var enemyName = "Roberto";
+var enemyHealth = 50;
+var enemyAttack = 12;
 
-var playerName=window.prompt("What is your robot's name?");
+var fight = function() {
+    //Alert players that they are starting the round
+    window.alert("Welcome to Robot Gladiators!")
 
-//Note the lack of quatation marks around the playerName
+    //Subtract the value of "playerAttack from the value of "enemyHealth" and use that result to update the value in the "enemyHealth" variable
+    enemyHealth=enemyHealth-playerAttack;
 
-console.log(playerName);
+    //Log a resulting message to the console so we know that it worked.
+    console.log(
+        playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
+    )
 
-console.log("This logs a string, good for leaving yourself a message");
+    //check enemy's health
+    if (enemyHealth <= 0) {
+        window.alert(enemyName + " has died!");
+    }
+    else {
+        window.alert(enemyName + " still has "+ enemyHealth + " health left.");
+    }
+    //Subtract the value of "enemyattack" from the value of "playerHealth" and use that result to update the value in the "playerHealth" variable.
+    playerHealth=playerHealth-enemyAttack;
 
-console.log(10+10);
+    //Log a resulting message to the console so we know it worked.
+    console.log(
+        enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
+    )
 
-console.log("Our robot's name is " + playerName);
+    //check player's health
+    if (playerHealth <= 0) {
+        window.alert(playerName + " has died!");
+    }
+    else {
+        window.alert(playerName + " still has " + playerHealth + " health left.");
+    }
 
-var playerName = "Tony the Robot";
 
-// Tony the Robot is ready for battle!
-console.log("Tony the Robot" + " is ready for battle!");
+};
 
-// "Tony the Robot is ready for battle!"
-console.log(playerName + " is ready for battle!");
-
-// "Your robot, Tony the Robot, has won!
-console.log("Your robot, " + playerName + ", has won!");
+fight();
